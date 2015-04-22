@@ -1,0 +1,290 @@
+* { margin: 0; padding: 0; } 
+/*háttér és betű-beállítások*/
+html {	
+		background-color:#000116;
+		overflow:scroll;
+		text-align:justify;
+		color:white;}
+		
+html a{	
+		color: white;
+		text-decoration:none;}
+
+h1{	
+		margin-bottom: 30px;
+		margin-top:40px;
+		font:32px Lucida Sans, Sans-Serif;
+		font-weight:bold;
+		text-align: center;}	
+
+#hir{
+		margin-bottom:0px;}
+
+h2{	
+		color:#4f91d5;
+		margin-top:8px;
+		padding-top:28px;
+		margin-bottom: 16px;
+		font:24px Lucida Sans, Sans-Serif;
+		font-weight:bold;
+		text-align:left}	
+
+h3{
+		color:#c0c0c0;
+		font-size:120%;}
+		
+h4{
+		font-weight:normal;
+		margin-bottom:18px;
+		font-size:80%;
+		color:#c0c0c0;}
+		
+#error{
+		color:red;}
+
+p {	
+		font: 13.5px/2 Lucida Sans Unicode, Serif;
+		color:#c0c0c0;
+		margin: 0 0 15px 0;}	
+
+ul{	
+		font: 13.5px/2 Lucida Sans Unicode, Serif;
+		color:#c0c0c0;}	
+
+/* logó - cím - keresés */
+#headbox{	
+		width:760px;
+		height:150px;
+		min-width:500px;}
+
+#cim h1{	
+		font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+		font-size:28px;
+		font-weight:bold;
+		text-align:left;
+		float:left;
+		margin-top:30px; /*eng 30px;*/
+		margin-bottom:0px;}	
+
+#cim img{
+		float:left;}
+		
+#jump{
+		width:200px;
+		position:absolute;
+		top:120px;}
+
+#jump img{
+		margin-top:10px;
+		margin-left:5px;}
+	
+#headtextbox{
+		padding-top:70px;}
+	
+#headtextbox p{
+		font: 13.5px/2 Lucida Sans Unicode, Serif;
+		color:#c0c0c0;
+		text-align:right;
+		margin-bottom:0px;}
+
+/*menü*/
+#menu ul { 	text-align: center;  
+			display:inline-block;
+			list-style: none;}
+
+#menu li {	
+			position: relative;
+			width: 110px;}
+
+#menu li:hover > ul{ display: inline-block; }
+
+#menu li  a{	width: 150px;
+			height:22px;
+			vertical-align:middle;
+			font: 13px Lucida Sans Unicode, Serif;
+			text-align: center;
+			border: 2px solid black;
+			border-radius: 5px;
+			box-shadow: 2px 2px 10px black;
+			display: inline-table;
+			padding: 4px;
+			background-color: #05196e;}
+
+#menu li a:hover {	background-color:#0726aa;} 
+
+#menu ul ul{	display: none;
+			width:180px;
+			top: 0px;
+			left: 160px;
+			border: 2px solid #172149;
+			border-radius: 5px;
+			position: absolute;
+			z-index: 1000;
+			background-color:black;	}
+
+#menu ul ul a{	text-align: left;
+			width: 168px;
+			background-color:black;}
+
+/*tartalom*/
+#test{	
+		width: auto;
+		margin: 0px auto; 
+		padding: 20px;}
+
+#content{	
+		width: 90%; 
+		margin-left:auto;
+		margin-right:auto;}
+
+#content a, #subcontent a{	
+		color:#4f91d5;
+		text-decoration:underline;}	
+	
+#submenu{	
+		display:inline-table;
+		width:210px;
+		color:#4f91d5}
+
+#submenu ul{	
+		text-align:left;
+		display:block;
+		list-style: none;
+		font:13.5px/1.5 Lucida Sans Unicode, Serif;}		
+
+#submenu li a{display: inline-table;}
+
+#submenu li{
+		margin-bottom:8px;
+		padding:2px;
+		border:0px solid white;}
+
+#submenu li:hover {	
+		background-color:#172149;
+		border-radius:4px;}
+
+#subcontent{
+		display:inline-table;
+		padding-left:10px;
+		width:550px}
+			
+#subcontent h2{	
+		text-align:center}
+
+#forras{	
+		margin-top:100px}
+
+#forras p{	
+		font-size:70%}
+
+#nevjegy1{
+		width:100px;
+		position:absolute;}
+
+#nevjegy2{
+		display:inline-table;
+		margin-left:112px;
+		margin-bottom:40px;}	
+
+#nevjegy2 h2{
+		margin-bottom:6px;
+		text-align:left;}
+
+#admin { /* profil_admin.php */
+		width:700px;
+		font: 13.5px/2 Lucida Sans Unicode, Serif;
+		color:#c0c0c0;
+		text-align:left;
+		position:relative;
+		left:-50px;
+		margin-bottom:200px;}
+		
+#admin th, #admin td{
+		border:1px solid white;
+		border-color:#c0c0c0;
+		margin:0;
+		padding:7px;
+		border-collapse:collapse;}
+
+#admin  th{
+		font-weight:bold;
+		color:#4f91d5;}
+
+table, tr, td{	
+		padding:10px;
+		text-align:left;
+		font-size:90%;
+		border-collapse:collapse;
+		border: 0px solid white;}
+
+table h3{
+		color:#4f91d5;}
+		
+iframe{
+		margin-bottom:50px;}
+
+#google{
+		width:150px;
+		height:18px;}
+
+form{
+		margin-bottom:150px;
+		text-align:center;}
+
+form input{
+		width:150px;
+		height:25px;}
+
+#hircim	{
+		width:580px;
+		/* EFFECT: profil/admin_hir_uj.php <input> */}
+		
+#profil label{
+		text-align:left;
+		display:table-cell;}
+
+#button{
+		width:100px;
+		height:25px;}
+
+#gall{
+		width: 600px; 
+		margin: 0px auto;
+		height:1600px;}
+
+#gallery{
+		width:150px;
+		height:200px;
+		margin-left:24px;
+		margin-right:24px;
+		float:left;
+		text-align:center;}
+
+#gallery img:hover{
+		box-shadow:0 0 20px;}
+
+#gallery2{
+		width:150px;
+		height:130px;
+		margin-left:24px;
+		margin-right:24px;
+		float:right;
+		text-align:center;}
+
+#gallery2 img:hover{
+		box-shadow:0 0 20px;}
+
+#gallery3{
+		margin-left:24px;
+		margin-right:24px;
+		float:right;}
+
+#imp{
+		text-align:center;
+		margin-top:50px;}
+		
+#slider{
+		display:none;}
+
+div{	
+		border:0px solid red;}

@@ -1,0 +1,388 @@
+* { margin: 0; padding: 0; } 
+
+/** háttér - betű - lábléc **/
+
+html {	
+	background: url(../pic/hatter.jpg) no-repeat right bottom fixed; 
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow:scroll;
+	text-align:justify;
+	color:white;}
+		
+html a{	
+	color: white;
+	text-decoration:none;}
+
+html, body {
+	height: 100%;}
+
+.CodeMirror{text-align:left}
+
+.slider-wrapper{margin-top:20px}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */}
+
+.footer, .push {
+	height: 100px; /* .push must be the same height as .footer */ }
+
+.footer{
+	text-align:center;
+	margin-top:40px;}
+
+.footer b{
+	color:#4f91d5;}
+
+.hr{
+	width:700px;
+	border-top:2px groove white;
+	margin:0 auto;}		
+
+h1{	
+	margin-top:40px;
+	font:32px Lucida Sans, Sans-Serif;
+	font-weight:bold;
+	text-align: center;}	
+
+#hir{
+	margin-bottom:0px;}
+
+h2{	
+	color:#4f91d5;
+	margin-top:8px;
+	padding-top:28px;
+	margin-bottom: 16px;
+	font:24px Lucida Sans, Sans-Serif;
+	font-weight:bold;
+	text-align:left}	
+
+h3{
+	color:#c0c0c0;
+	font-size:120%;}
+		
+h4{
+	font-weight:normal;
+	margin-bottom:18px;
+	font-size:80%;
+	color:#c0c0c0;}
+
+#error{color:red;}
+
+p {	
+	font: 13.5px/2 Lucida Sans Unicode, Serif;
+	color:#c0c0c0;
+	margin-top:25px;}	
+
+ul, ol{	
+	font: 13.5px/2 Lucida Sans Unicode, Serif;
+	color:#c0c0c0;}	
+
+div#Page1{display:inline;}
+div#Page2, #Page3, #Page4, #Page5, #Page6, #Page7, #Page8, #Page9, #Page10, #Page11, #Page12 {display:none;}
+.cursoru{cursor:pointer}.cursor{
+	cursor:pointer; 
+	text-decoration: underline;	
+	}
+.right{float:right}
+.left{float:left}
+
+/** logó - cím - keresés **/
+
+#headbox{	
+	width:760px;
+	height:120px;
+	margin:auto;
+	margin-top:10px;}
+		
+#cim h1{	
+	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+	font-size:28px;
+	font-weight:bold;
+	text-align:left;
+	float:left;
+	width:400px;
+	margin-top:30px;
+	margin-bottom:0px;}	
+
+#cim img{
+	float:left;}
+
+#jump{
+	float:right;}
+
+#jump img{
+	margin-top:10px;
+	margin-left:5px;}
+	
+#headtextbox{
+	padding-top:50px;}
+	
+#headtextbox p{
+	font: 13.5px/2 Lucida Sans Unicode, Serif;
+	color:#c0c0c0;
+	text-align:right;
+	margin:0px;
+}
+
+/* MENÜ */
+
+nav#menu{text-align:center}
+
+#menu ul{
+	list-style:none;
+	border-collapse:collapse;
+	display:table;
+	font-size: 0;
+	margin:auto;
+	box-shadow: 0px 0px 20px black;
+	}
+#menu ul > li{
+	display:inline-block;
+	position:relative;
+	border: 2px solid black;
+	border-radius: 6px;
+	margin:-1px;
+	}
+#menu ul > li > ul{
+	display:none;
+	}
+#menu ul > li:hover > ul{
+	display:block;
+	position:absolute;
+	background-color:black;
+	box-shadow: 0px 0px 0px black;
+	border: 2px solid #172149;
+	border-radius: 5px;
+	top:33px;
+	left:0px;
+	z-index: 1000;
+	}
+#menu ul > li > ul > li{
+	display:block;
+	}
+#menu a{
+	display:block;
+	background-color: #05196e;
+	padding:6px 16px 6px 16px;
+	text-decoration: none;
+	font: 13px Lucida Sans Unicode, Serif;
+	border-radius: 3px;
+	}
+#menu a:hover{
+	background-color:#0726aa;
+	}
+#menu ul > li  > ul> li > a{
+	white-space: nowrap;
+	background-color:black;
+	min-width:100px;
+	text-align:left;
+	}
+
+/*tartalom*/
+#content{	
+	width: 600px; 
+	margin: auto;
+	position:relative;
+	}
+#content a, #subcontent a{	
+	color:#4f91d5;
+	text-decoration:underline;
+	}
+
+div#Kiskor{ display:inline; }
+div#Gazd{ display:none; }
+div#Okt{ display:none; }
+div#Program{ display:none; }
+div#Szamtech{ display:none; }
+
+#submenu{
+	width:168px;
+	position:absolute;
+	left:-180px;
+	margin-top:70px;
+	}
+#submenu ul{	
+	text-align:left;
+	display:block;
+	list-style: none;
+	font:13.5px/1.5 Lucida Sans Unicode, Serif;
+	}
+#submenu li{
+	margin-bottom:8px;
+	padding:2px;
+	border:0px solid white;
+	cursor:pointer;
+	}
+#submenu li:hover {	
+	background-color:#172149;
+	border-radius:4px;
+	}
+
+#forras{margin-top:100px}
+
+#forras p{font-size:70%}
+
+#nevjegy1{
+	position:absolute;
+	margin-top:20px;}
+
+#nevjegy2{
+	display:inline-table;
+	margin-left:112px;
+	margin-bottom:20px;}	
+
+#nevjegy2 h2{
+	margin-bottom:6px;
+	text-align:left;}
+
+#admin { 
+	width:900px;
+	font: 13.5px/2 Lucida Sans Unicode, Serif;
+	color:#c0c0c0;
+	text-align:left;
+	position:relative;
+	left:-50px;
+	/*EFFECT: profil/admin_felh.php <table> **/}
+		
+#admin th, #admin td{
+	border:1px solid white;
+	border-color:#c0c0c0;
+	margin:0;
+	padding:7px;
+	border-collapse:collapse;}
+
+#admin  th{
+	font-weight:bold;
+	color:#4f91d5;}
+
+#tag{
+	font: 13.5px/2 Lucida Sans Unicode, Serif;
+	color:#c0c0c0;
+	text-align:left;
+	margin-bottom:30px;
+	/** profil_admin_tag.php <table> **/}
+		
+#tag th, #tag td{
+	border:1px solid white;
+	border-color:#c0c0c0;
+	margin:0;
+	padding:7px;
+	border-collapse:collapse;}
+
+#tag  th{
+	font-weight:bold;
+	color:#4f91d5;}
+
+table, tr, td{	
+	padding:10px;
+	text-align:left;
+	font-size:90%;
+	border-collapse:collapse;
+	border: 0px solid white;}
+
+table h3{color:#4f91d5;}
+
+iframe{margin-bottom:50px;}
+
+#google{
+	width:150px;
+	height:18px;}
+
+#hircim	{
+	width:580px;
+	/* EFFECT: profil/admin_hir_uj.php <input> */}
+		
+#profil label{
+	text-align:left;
+	display:table-cell;}
+
+#button{
+	width:100px;
+	height:25px;}
+
+#gall{
+	width: 600px; 
+	margin: 0px auto;
+	margin-top:25px;
+}
+
+#gallery{
+	width:150px;
+	height:200px;
+	margin-left:24px;
+	margin-right:24px;
+	float:left;
+	text-align:center;
+}
+
+#gallery p{
+	margin-top:5px;
+}
+
+#gallery img:hover{
+	box-shadow:0 0 20px;}
+
+#gallery2{
+	height:140px;
+	margin-left:24px;
+	margin-right:24px;
+	float:right;
+	text-align:center;}
+
+#gallery2 img:hover{
+	box-shadow:0 0 20px;}
+
+#gallery3{
+	margin-left:24px;
+	margin-right:24px;
+	float:right;}
+
+#taglista h2{
+	text-align:center;
+	/** profil_admin4.php <div> **/}
+
+/* tagok.php */
+
+.tag{
+	float:left;
+	width:280px;
+	height:120px;
+	padding:10px;
+	font-size:80%;
+}
+
+.tag img{
+	float:left;
+}
+
+.tag-h3{
+	padding-left:100px;
+	padding-top:45px;
+}
+
+.elnok-tag-h3{
+	padding-left:100px;
+	padding-top:20px;
+}
+
+.tag-p{
+	padding-left:100px;
+	font-size:12px;
+	text-align:left;
+}
+
+.floatclear{clear:both}
+.center{text-align:center}
+input[readonly] {background-color:lightgrey}
+
+#contact h3{padding-top:20px}
+#contact p{margin-top:0px}
+
+.bigform input{ padding:5px 1px 5px 1px; }
+
+.ib{ display:inline-block }

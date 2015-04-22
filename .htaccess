@@ -1,0 +1,39 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /beta
+
+RewriteRule ^Rolunk/$ index.php
+RewriteRule ^Rolunk/Bemutatkozas/$ index.php
+RewriteRule ^Rolunk/Kozepiskolasoknak/$ index.php
+RewriteRule ^Rolunk/Tagfelvetel/$ index.php
+RewriteRule ^Rolunk/Elnokseg/$ index.php
+RewriteRule ^Rolunk/Szervezeti_felepites/$ index.php
+RewriteRule ^Rolunk/Nevadonk/$ index.php
+RewriteRule ^Esemenyek/$ index.php
+RewriteRule ^Esemenyek/Hirek/$ index.php
+RewriteRule ^Esemenyek/Eloadasok/$ index.php
+RewriteRule ^Esemenyek/Szeminariumok/$ index.php
+RewriteRule ^Esemenyek/Szak7/$ index.php
+RewriteRule ^Esemenyek/Versenyek/$ index.php
+RewriteRule ^Esemenyek/Kozossegi_programok/$ index.php
+RewriteRule ^Tagok/$ index.php
+RewriteRule ^Kiserleti_Kor/$ index.php
+RewriteRule ^Galeria/$ index.php
+RewriteRule ^Galeria/Kepek/$ index.php
+RewriteRule ^Galeria/Videok/$ index.php
+RewriteRule ^Kapcsolat/$ index.php
+RewriteRule ^Belepes/$ index.php
+RewriteRule ^Regisztracio/$ index.php
+RewriteRule ^Admin/Felhasznalok/$ index.php
+RewriteRule ^Admin/Hirek/$ index.php
+RewriteRule ^Admin/Hirek/Uj/$ index.php
+RewriteRule ^Admin/Esemenyek/$ index.php
+RewriteRule ^Admin/Tagok/$ index.php
+RewriteRule ^Admin/Tagok/Uj/$ index.php
+RewriteRule ^Tag/Profil/$ index.php
+RewriteRule ^Tag/Esemenyek/$ index.php
+RewriteRule ^Tag/Tagok/$ index.php
+RewriteRule ^Tag/Naptar/$ index.php
+RewriteRule ^Admin/Weboldal/$ index.php
+RewriteRule ^Admin/Weboldal/Uj/$ index.php
+RewriteRule ^Kilep/$ index.php

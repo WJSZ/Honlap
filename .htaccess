@@ -1,6 +1,6 @@
 Options +FollowSymlinks
 RewriteEngine on
-RewriteBase /beta
+RewriteBase /
 
 RewriteRule ^Rolunk/$ index.php
 RewriteRule ^Rolunk/Bemutatkozas/$ index.php

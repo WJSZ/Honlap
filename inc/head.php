@@ -33,7 +33,7 @@
 
 // subpage megjelenítés/elrejtés
 function displayPage(id){
-	for (var i = 1; i < 12; i++){
+	for (var i = 1; i < 20; i++){
 		var disp = 'none'; if(i == id) { disp = 'inline'; }
 		document.getElementById('Page'+i).style.display = disp;
 		document.getElementById('Page'+i).focus();

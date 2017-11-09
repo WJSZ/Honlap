@@ -5,18 +5,18 @@
 	<div class="hr"></div>
 	<?php if($lang=='hu'){ ?>
 		<b>Készítette: </b> Nyitrai Gábor<br>
-			<b>Tartalom: </b> Lucsányi Dávid, 
-			<b>Dizájn: </b> Kriváchy Tamás, 
+			<b>Tartalom: </b> Gyökös Réka, Lucsányi Dávid, 
+			<b>Dizájn: </b> Kriváchy Tamás, <br>
 			<b>Fordítás: </b> Lévay Sára, Milecz-Mitykó Richárd 
-			<b>Rendszergazda: </b> Szolnoki Lénárd
+			<b>Rendszergazda: </b> Tamás Gábor
 	<?php } if($lang=='eng'){ ?>
 		<b>by: </b> Nyitrai Gábor<br>
-			<b>content: </b> Lucsányi Dávid, 
-			<b>design: </b> Kriváchy Tamás, 
+			<b>content: </b> Gyökös Réka, Lucsányi Dávid, 
+			<b>design: </b> Kriváchy Tamás, <br>
 			<b>translate: </b> Lévay Sára, Milecz-Mitykó Richárd 
-			<b>system administrator: </b> Szolnoki Lénárd
+			<b>system administrator: </b> Tamás Gábor
 	<?php } ?>
-	<p>v3.0.2015.04.22.</p>
+	<p>v3.1.2017.10.16.</p>
 </div>
 
 </body>

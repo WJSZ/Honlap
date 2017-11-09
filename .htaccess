@@ -12,10 +12,11 @@ RewriteRule ^Rolunk/Nevadonk/$ index.php
 RewriteRule ^Esemenyek/$ index.php
 RewriteRule ^Esemenyek/Hirek/$ index.php
 RewriteRule ^Esemenyek/Eloadasok/$ index.php
+RewriteRule ^Esemenyek/Fizikus_Temavalaszto_Nap/$ index.php
 RewriteRule ^Esemenyek/Szeminariumok/$ index.php
-RewriteRule ^Esemenyek/Szak7/$ index.php
 RewriteRule ^Esemenyek/Versenyek/$ index.php
 RewriteRule ^Esemenyek/Kozossegi_programok/$ index.php
+RewriteRule ^Esemenyek/Szak7/$ index.php
 RewriteRule ^Tagok/$ index.php
 RewriteRule ^Kiserleti_Kor/$ index.php
 RewriteRule ^Galeria/$ index.php

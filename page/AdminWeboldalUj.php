@@ -344,7 +344,7 @@ if(isset($_POST['newMenu'])){
 			$htaccess = 
 "Options +FollowSymlinks
 RewriteEngine on
-RewriteBase /beta\n\n";
+RewriteBase /$beta\n\n";
 			foreach($locations as $v)
 				$htaccess .= "RewriteRule ^".$v."$ index.php\n";
 			// Hitelesített oldalak beégetése

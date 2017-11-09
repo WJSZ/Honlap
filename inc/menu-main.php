@@ -20,6 +20,6 @@ while($row = $pages->fetch_assoc()){
 	}
 	$HTMLmenu .= "\r\n\t</li>";
 }
-$HTMLmenu .= "\r\n<ul>\r\n</nav>\n";
+$HTMLmenu .= "\r\n</ul>\r\n</nav>\n";
 echo $HTMLmenu;
 ?>

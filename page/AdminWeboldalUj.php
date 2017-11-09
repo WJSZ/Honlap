@@ -328,7 +328,7 @@ if(isset($_POST['newMenu'])){
 							  VALUES (%s, %s, '%s', '%s', '%s', '%s', '%s', '%s');
 							INSERT INTO content
 							  (location, hu_content, eng_content)
-							  VALUES ('%s','%s','%s', '%s');",
+							  VALUES ('%s','%s','%s');",
 							$new_listpos, $new_sublistpos, $hu_name, $eng_name, $location, $href, $target, $style,
 							$location, $hu_content, $eng_content/*, $priv*/);
 			if($mysqli->multi_query($sql)){

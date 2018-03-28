@@ -139,14 +139,14 @@ nav#menu{text-align:center}
 	display:table;
 	font-size: 0;
 	margin:auto;
-	box-shadow: 0px 0px 20px black;
+	//box-shadow: 0px 0px 20px black;
+	
 	}
 #menu ul > li{
 	display:inline-block;
 	position:relative;
-	border: 2px solid black;
-	border-radius: 6px;
-	margin:-1px;
+	border: 1px solid black;
+	border-radius: 5px;
 	}
 #menu ul > li > ul{
 	display:none;
@@ -155,10 +155,8 @@ nav#menu{text-align:center}
 	display:block;
 	position:absolute;
 	background-color:black;
-	box-shadow: 0px 0px 0px black;
-	border: 2px solid #172149;
 	border-radius: 5px;
-	top:33px;
+	top:32px;
 	left:0px;
 	z-index: 1000;
 	}
@@ -171,7 +169,8 @@ nav#menu{text-align:center}
 	padding:6px 16px 6px 16px;
 	text-decoration: none;
 	font: 13px Lucida Sans Unicode, Serif;
-	border-radius: 3px;
+	border-radius: 5px;
+	height:20px;
 	}
 #menu a:hover{
 	background-color:#0726aa;

@@ -4,6 +4,8 @@
 $listpos = isset($_GET['listpos']) ? $_GET['listpos'] : 0;
 $sublistpos = isset($_GET['sublistpos']) ? $_GET['sublistpos'] : 0;
 
+$user = $_SESSION['username'];
+
 $text=array();
 $mainmenuchecked = '';
 $submenuchecked = '';
@@ -13,6 +15,8 @@ $targetcheck = '';
 $stylecheck = '';
 $hu_content = '';
 $eng_content = '';
+$hu_content_back = '';
+$eng_content_back = '';
 $error = '';
 $href = '';
 $location = '';
@@ -36,6 +40,8 @@ if($listpos){ // EDIT PAGE
 	$content = $mysqli->query($sql)->fetch_assoc();
 	$hu_content = $content['hu_content'];
 	$eng_content = $content['eng_content'];
+	$hu_content_back = $content['hu_content'];
+	$eng_content_back = $content['eng_content'];
 	/*
 	switch ($content['priv']){
 		case 'N': $N_checked='checked';break;
@@ -176,6 +182,8 @@ if(isset($_POST['newMenu'])){
 		if(isset($_POST['selectedListPos'])) $selectedListPos=$_POST['selectedListPos'];
 		$hu_content = $mysqli->real_escape_string($_POST['code1']);
 		$eng_content = $mysqli->real_escape_string($_POST['code2']);
+		$hu_content_back = $_POST['code1'];
+		$eng_content_back = $_POST['code2'];
 		/*
 		$priv = $_POST['priv'];
 		switch ($priv){
@@ -188,7 +196,7 @@ if(isset($_POST['newMenu'])){
 			if($menuCheck=='main'){
 				// LISTPOS SETTINGS
 				$sql = sprintf("SELECT count(*) AS count_listpos FROM (SELECT * FROM menu GROUP BY listpos) AS view");
-				$max_listpos = $mysqli->query($sql)->fetch_object()->count_listpos;
+				$max_listpos = $mysqli->query($sql)->fetch_object()->count_listpos+1;
 				$from = $listpos;
 				$to = $selectedListPos;
 				$count = 0;
@@ -233,9 +241,11 @@ if(isset($_POST['newMenu'])){
 				$sql2 = sprintf("UPDATE content
 								 SET location = '%s', 
 								     hu_content = '%s', 
-									 eng_content = '%s'
+									 eng_content = '%s',
+									 mod_user = '%s',
+									 mod_dat = NOW()
 								  WHERE location = '%s';",
-								$location, $hu_content, $eng_content, /*$priv,*/
+								$location, $hu_content, $eng_content, $user, /*$priv,*/
 								$old_location);
 				$sql .= $sql2;
 				$sql2 = sprintf("SELECT location FROM menu WHERE listpos != 0 ORDER BY listpos, sublistpos");
@@ -296,9 +306,11 @@ if(isset($_POST['newMenu'])){
 				$sql2 = sprintf("UPDATE content
 								 SET location = '%s', 
 								     hu_content = '%s', 
-									 eng_content = '%s'
+									 eng_content = '%s',
+									 mod_user = '%s',
+									 mod_dat = NOW()
 								  WHERE location = '%s';",
-								$location, $hu_content, $eng_content, /*$priv,*/
+								$location, $hu_content, $eng_content, $user,/*$priv,*/
 								$old_location);
 				$sql .= $sql2;
 				if($mysqli->multi_query($sql)){
@@ -327,10 +339,10 @@ if(isset($_POST['newMenu'])){
 			                  (listpos, sublistpos, hu_name, eng_name, location, href, target, style)
 							  VALUES (%s, %s, '%s', '%s', '%s', '%s', '%s', '%s');
 							INSERT INTO content
-							  (location, hu_content, eng_content)
-							  VALUES ('%s','%s','%s');",
+							  (location, hu_content, eng_content, cr_user)
+							  VALUES ('%s','%s','%s', '%s');",
 							$new_listpos, $new_sublistpos, $hu_name, $eng_name, $location, $href, $target, $style,
-							$location, $hu_content, $eng_content/*, $priv*/);
+							$location, $hu_content, $eng_content, $user/*, $priv*/);
 			if($mysqli->multi_query($sql)){
 				$error = 'Új gomb és tartalom felvétele sikeres!';
 				$done = 1;
@@ -338,31 +350,6 @@ if(isset($_POST['newMenu'])){
 			}
 			elseif($mysqli->errno == '1062') $error = 'Már létezik ez a gomb';
 			else $error = $mysqli->errno.'<br>'.$mysqli->error."<br>SQL: ".$sql;
-		}		
-		// .HTACCESS WRITE
-		if($done){
-			$htaccess = 
-"Options +FollowSymlinks
-RewriteEngine on
-RewriteBase /$beta\n\n";
-			foreach($locations as $v)
-				$htaccess .= "RewriteRule ^".$v."$ index.php\n";
-			// Hitelesített oldalak beégetése
-			$htaccess .= 
-"RewriteRule ^Admin/Felhasznalok/$ index.php
-RewriteRule ^Admin/Hirek/$ index.php
-RewriteRule ^Admin/Hirek/Uj/$ index.php
-RewriteRule ^Admin/Esemenyek/$ index.php
-RewriteRule ^Admin/Tagok/$ index.php
-RewriteRule ^Admin/Tagok/Uj/$ index.php
-RewriteRule ^Tag/Profil/$ index.php
-RewriteRule ^Tag/Esemenyek/$ index.php
-RewriteRule ^Tag/Tagok/$ index.php
-RewriteRule ^Tag/Naptar/$ index.php
-RewriteRule ^Admin/Weboldal/$ index.php
-RewriteRule ^Admin/Weboldal/Uj/$ index.php
-RewriteRule ^Kilep/$ index.php\n";
-			fwrite( fopen('.htaccess','w'), $htaccess );
 		}
 	}
 }
@@ -444,11 +431,11 @@ if($error) echo $errorDIV.$error.$vissza.'</div>';
 				<?=$LinksOpts?>
 			</datalist>
 		</div>
-	<p>Új böngésző lapot nyisson? (target="target"):</p>
+	<p>Új böngésző lapot nyisson? (target="blank"):</p>
 		<div class="center">
 			<input name=target type="checkbox" <?=$targetcheck?>>
 		</div>
-	<p>Legyen rejtett? (style="display:none"):</p>
+	<p>Legyen rejtett? (style="display:none", <br><i>TÖRLÉS HELYETT, ha törölni szeretnéd kérlek jelezd az adminnnak</i>):</p>
 		<div class="center">
 			<input name=style type="checkbox" <?=$stylecheck?>>
 		</div>
@@ -462,11 +449,11 @@ if($error) echo $errorDIV.$error.$vissza.'</div>';
 	<p><button type="button" onclick="WrapSwitch()" style="padding:3px 10px 3px 10px;">Sortörés</button></p>
 	<div style="display:inline;float:left;margin-left:10px">
 		<p>Magyar tartalom:</p>
-		<textarea id="code1" name=code1><?=$hu_content?></textarea>
+		<textarea id="code1" name=code1><?=$hu_content_back?></textarea>
 	</div>
 	<div style="display:inline;float:left;margin-left:10px;">
 		<p>English content:</p>
-		<textarea id="code2" name=code2><?=$eng_content?></textarea>
+		<textarea id="code2" name=code2><?=$eng_content_back?></textarea>
 	</div>
 	<p class="floatclear">Válassz témát: 
 		<select id="select" onchange="selectTheme()">

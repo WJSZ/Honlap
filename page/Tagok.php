@@ -26,6 +26,7 @@
 <?php $it++; } ?>
 
 <!-- TISZTELETBELI TAG -->
+<!-- <tr><td width="100"><img src="pic/profil/Hartlein_Karoly.png"></td><td width="200">Härtlein Károly</td></tr> -->
 		<h2><a id="tagok" style="text-decoration:none"><?php if($lang=='hu'){echo'Tiszteletbeli Tag:';} if($lang=='eng'){echo'Honorary Member:';}?></a></h2>
 <h3><table width="300">
 <tr><td width="100"><img src="pic/profil/Vanko_Peter.png"></td><td width="200">Vankó Péter</td></tr>
@@ -51,7 +52,19 @@
 <?php $it++; } ?>
 
 
-	<h2 class="floatclear"><?php if($lang=='hu'){echo'Öregdiákok:';} if($lang=='eng'){echo'Former Members:';}?></h2>
+
+
+<!-- OROKOS TAG -->
+		<h2><a id="tagok" style="text-decoration:none"><?php if($lang=='hu'){echo'Örökös Tagok:';} if($lang=='eng'){echo'Life Members:';}?></a></h2>
+<h3><table width="300">
+<tr></tr>
+<tr><td width="100"><img src="pic/profil/Gubicza_Agnes.png"></td><td width="200">Gubicza Ágnes</td></tr>
+<tr><td width="100"><img src="pic/profil/Konczer_Jozsef.png"></td><td width="200">Konczer József</td></tr>
+</table></h3>
+
+
+
+	<h2 class="floatclear"><?php if($lang=='hu'){echo'Alumni Tagok:';} if($lang=='eng'){echo'Alumni Members:';}?></h2>
 
 <?php
 	$sql = sprintf("SELECT nev FROM volt ORDER BY nev"); 

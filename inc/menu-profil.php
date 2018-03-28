@@ -14,6 +14,7 @@
 		<li><a href="Tag/Profil/">Profil</a></li>
 		<li><a href="Tag/Esemenyek/">Események</a></li>
 		<li><a href="Tag/Tagok/"> Tagok </a></li>
+		<li><a href="https://wjsz.bme.hu/~kiskor/wiki/Kezd%C5%91lap" target=blank> KisKör Wiki </a></li>
 		<li><a href="Tag/Naptar/">Naptár</a></li>
 	</ul>
 </nav>

@@ -51,9 +51,8 @@ $showERROR = ''; if($error) $showERROR = $errorDIV.$error.'</div>';
 <div id="content">
 <h2>Kezdőoldal:</h2>
 <form method="post" action="">
-	<p>Jelenlegi URL:<input type="text" value="<?=$href?>" readonly>
-	<span style="margin-left:40px;"></span>
-	Új URL:<select name=newHomeLocation><?=$locationOpts?></select></p>
+	<p>Jelenlegi URL:<input type="text" value="<?=$href?>" readonly></p>
+	<p>Új URL:<select name=newHomeLocation><?=$locationOpts?></select></p>
 	<div class="center">
 		<p><button style="padding:5px 15px 5px 15px;">Új kezdőoldal beállítása</button></p>
 	</div>

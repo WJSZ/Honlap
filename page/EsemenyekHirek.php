@@ -3,23 +3,8 @@ $hir = isset($_GET['hir']) ? $_GET['hir'] : '';
 ?>
 	
 <div id="content">
-	<?php if($hir == '') {	?>
-	<div class="slider-wrapper theme-default">
-		<div class="ribbon"></div>
-		<div id="slider" class="nivoSlider">
-			<img src="pic/slide/01.jpg" alt="" />
-			<img src="pic/slide/02.jpg" alt="" />
-			<img src="pic/slide/03.jpg" alt="" />
-			<img src="pic/slide/04.jpg" alt="" />
-			<img src="pic/slide/05.jpg" alt="" />
-			<img src="pic/slide/06.jpg" alt="" />
-			<img src="pic/slide/07.jpg" alt="" />
-			<img src="pic/slide/08.jpg" alt="" />
-		</div>
-	</div>
-	<?php } ?>
-	
-	<h1 id="hir" style="margin-top:0"><?php if($lang=='hu'){echo'Hírek';} if($lang=='eng'){echo'News';}?></h1>
+
+	<h1 id="hir" ><?php if($lang=='hu'){echo'Események';} if($lang=='eng'){echo'Events';}?></h1>
 
 	<?php
 if($hir == '')
@@ -58,18 +43,5 @@ else
 <p><?php $csere = array("\r\n", "\n", "\r"); echo str_replace($csere, '<br>', $data['szoveg']); ?></p> 
 
 <?php } ?>
-
-<script>
-$(function() {
-	$('#slider').nivoSlider({
-		effect: 'fade',
-		animSpeed: 300,
-		directionNav: true,
-		controlNav: true,
-		pauseTime: 3000
-	});
-
-});
-</script>
 
 </div>

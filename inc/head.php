@@ -18,7 +18,7 @@
 	<script src="style/jquery-2.1.1.min.js" type="text/javascript"></script>
 
 	<!-- CodeMirror beállítások -->
-	<?php if($PageFile == 'AdminWeboldalUj') require_once('style/CodeMirror-setup.php'); ?>
+	<?php /*if($PageFile == 'AdminWeboldalUj')*/ require_once('style/CodeMirror-setup.php'); ?>
 
 	<!-- Jssor slider beállítások -->
 	<script type="text/javascript" src="style/JssorSlider/js/jssor.slider.mini.js"></script>

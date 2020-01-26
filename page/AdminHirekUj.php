@@ -37,24 +37,88 @@ if($_POST) // Szöveg frissítése
 ?>
 
 <div id="content">
-<h1>Hírek szerkesztése</h1>
+<h1>Esemény szerkesztése</h1>
 
 <p><span id="error"><?php echo "$error"; ?></span></p> <!--Hibaüzenet kiiratás-->
 
+<!--<p><button type="button" onclick="WrapSwitch()" style="padding:3px 10px 3px 10px;">Sortörés</button></p>-->
+
 <form id="profil" class="bigform center" action="" method="post" >
 	<input type="hidden" name="hirid" value="<?php echo $hirid ?>"/>
+	<p><button id="button">Mentés</button></p>
 	<p>
-		<label>Cím: </label>
-		<input id="hircim" name="cim" size="700" value="<?php echo $cim ?>" autocomplete="off" autofocus />
+		<label>Cím (max 1000 karakter):</label>
+		<textarea id="hircim" name="cim" autocomplete="off" autofocus /><?php echo $cim ?></textarea>
 	</p>
 	<p>
-		<label>Összefoglaló: (max 1000 karakter)</label>
-		<textarea rows="8" cols="70" maxlength="1000" name="absztrakt" /><?php echo $absztrakt ?></textarea>
+		<label>Összefoglaló (max 1000 karakter):</label>
+		<textarea id="absztrakt" name="absztrakt" /><?php echo $absztrakt ?></textarea>
 	</p>
 	<p>
 		<label>Tartalom: </label>
-		<textarea rows="20" cols="70" maxlength="10000" name="szoveg" /><?php echo $szoveg ?></textarea>
+		<textarea id="szoveg" name="szoveg" /><?php echo $szoveg ?></textarea>
 	</p>
-	<p><button id="button">Mentés</button></p>
 </form>
 </div>
+
+<script type="text/javascript">
+var editor1 = CodeMirror.fromTextArea(document.getElementById("hircim"), {
+	mode: 'application/x-httpd-php',
+	lineNumbers: true,
+	lineWrapping: true,
+	styleActiveLine: true,
+	matchBrackets: true,
+	smartIndent: false,
+	tabSize: 4,
+	theme: 'eclipse',
+	height: '500px'
+  });
+  editor1.setSize(600, 100);
+  var editor2 = CodeMirror.fromTextArea(document.getElementById("absztrakt"), {
+	mode: 'application/x-httpd-php',
+	lineNumbers: true,
+	lineWrapping: true,
+	styleActiveLine: true,
+	matchBrackets: true,
+	smartIndent: false,
+	tabSize: 4,
+	theme: 'eclipse',
+	height: '300px'
+  });
+  editor2.setSize(600, 300);
+  var editor3 = CodeMirror.fromTextArea(document.getElementById("szoveg"), {
+	mode: 'application/x-httpd-php',
+	lineNumbers: true,
+	lineWrapping: true,
+	styleActiveLine: true,
+	matchBrackets: true,
+	smartIndent: true,
+	tabSize: 4,
+	theme: 'eclipse',
+	height: '600px'
+  });
+  editor3.setSize(600, 600);
+  
+  // Wrap set
+var wrap=true;
+function WrapSwitch(){
+    editor1.setOption("lineWrapping", wrap);
+	editor2.setOption("lineWrapping", wrap);
+	wrap = !wrap;
+}
+  
+  // Theme set
+  var input = document.getElementById("select");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].innerHTML;
+    editor1.setOption("theme", theme);
+	editor2.setOption("theme", theme);
+  }
+  var choice = document.location.search &&
+               decodeURIComponent(document.location.search.slice(1));
+  if (choice) {
+    input.value = choice;
+    editor1.setOption("theme", theme);
+	editor2.setOption("theme", theme);
+  }
+</script>

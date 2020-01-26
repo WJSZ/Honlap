@@ -1,9 +1,9 @@
 
 <div id="content">
 		
-<h1>Hírek szerkesztése</h1>
+<h1>Események szerkesztése</h1>
 
-<p><a href="Admin/Hirek/Uj/"><u>Új hír</u></a></p>
+<p><a href="Admin/Hirek/Uj/"><u>Új esemény</u></a></p>
 
 <table>
 	<?php

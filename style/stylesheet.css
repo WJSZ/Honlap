@@ -78,6 +78,9 @@ p {
 	color:#c0c0c0;
 	margin-top:25px;}	
 
+b {
+	color:#e6e6e6;}
+
 ul, ol{	
 	font: 13.5px/2 Lucida Sans Unicode, Serif;
 	color:#c0c0c0;}	
@@ -355,13 +358,21 @@ iframe{margin-bottom:50px;}
 	font-size:80%;
 }
 
+.tag2{
+	float:left;
+	width:280px;
+	height:20px;
+	padding:10px;
+	font-size:80%;
+}
+
 .tag img{
 	float:left;
 }
 
 .tag-h3{
-	padding-left:100px;
-	padding-top:45px;
+	padding-left:80px;
+	text-align:left;
 }
 
 .elnok-tag-h3{
@@ -373,6 +384,7 @@ iframe{margin-bottom:50px;}
 	padding-left:100px;
 	font-size:12px;
 	text-align:left;
+	margin-top:10px;
 }
 
 .floatclear{clear:both}

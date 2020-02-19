@@ -1,83 +1,77 @@
-<div id="content">
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-		<h1><?php if($lang=='hu'){echo'A Szakkollégium tagjai';} if($lang=='eng'){echo'Members of the College';}?></h1>
-<p align="center"><u><a href="Tagok/?#tagok"><?php if($lang=='hu'){echo'Ugrás a Tagokra';} if($lang=='eng'){echo'Jump to Members';}?></a></u></p>
+$members_content = "<div id=content> \n";
 
-<!-- ELNÖKSÉG -->
-		<h2><?php if($lang=='hu'){echo'Elnökségi tagok:';} if($lang=='eng'){echo'Presidency:';}?></h2>
+if($lang=='hu') $members_content .= "\t <h1>A Szakkollégium tagjai</h1> \n"; 
+if($lang=='eng')$members_content .= "\t <h1>Members of the College</h1> \n"; 
 
-<?php
-	$sql = sprintf("SELECT nev, poszt, email, elnokid FROM elnok ORDER BY elnokid"); 
-	$result = $mysqli->query($sql);
-	$it = 1;
-	while ($data = $result->fetch_assoc()) { 
 
-	$ekezetek = array('á', 'é', 'í', 'ó', 'ö', 'ő', 'ú', 'ü', 'ű', 'Á', 'É', 'Í', 'Ó', 'Ö', 'Ő', 'Ú', 'Ü', 'Ű', ' ');
-	$ekezetmentesek = array('a', 'e', 'i', 'o', 'o', 'o', 'u', 'u', 'u', 'A', 'E', 'I', 'O', 'O', 'O', 'U', 'U', 'U', '_');
-	$name = str_replace($ekezetek, $ekezetmentesek, $data['nev']);
+if($lang=='hu') $members_content .= "\t <h2>Elnökségi tagok</h2> \n"; 
+if($lang=='eng')$members_content .= "\t <h2>Presidency</h2> \n"; 
+
+	$sql = sprintf("SELECT * FROM members WHERE status_order < 3"); 
+	$members_result = $mysqli->query($sql);
+	while ($members_data = $members_result->fetch_assoc()) {
+		$sql = sprintf("SELECT status_name FROM members_status WHERE status_order = %s",$members_data['status_order']); 
+		$status_result = $mysqli->query($sql);
+		$status_data = $status_result->fetch_assoc();
+		$img_name = str_replace($ekezetek, $ekezetmentesek, $members_data['name']);
+		$members_content .= "\t\t  <div class=tag><img src=\"pic/profil/".$img_name.".png\"/>
+		<h3 class=elnok-tag-h3>".$members_data['name']."</h3>
+		<p class=tag-p>".$status_data['status_name']."<br></div> \n";
+	}
+
+if($lang=='hu') $members_content .= "\t <h2>Munkacsoport vezetők</h2> \n"; 
+if($lang=='eng')$members_content .= "\t <h2>Working group team leaders</h2> \n"; 
+
+	$sql = sprintf("SELECT * FROM members WHERE status_order > 2 AND status_order < 7"); 
+	$members_result = $mysqli->query($sql);
+	while ($members_data = $members_result->fetch_assoc()) {
+		$sql = sprintf("SELECT status_name FROM members_status WHERE status_order = %s",$members_data['status_order']); 
+		$status_result = $mysqli->query($sql);
+		$status_data = $status_result->fetch_assoc();
+		$img_name = str_replace($ekezetek, $ekezetmentesek, $members_data['name']);
+		$members_content .= "\t\t  <div class=tag><img src=\"pic/profil/".$img_name.".png\"/>
+		<h3 class=elnok-tag-h3>".$members_data['name']."</h3>
+		<p class=tag-p>".$status_data['status_name']."<br></div> \n";
+	}
+
+if($lang=='hu') $members_content .= "\t <h2>Aktív tagok</h2> \n"; 
+if($lang=='eng')$members_content .= "\t <h2>Active members</h2> \n"; 
+
+	$sql = sprintf("SELECT * FROM members WHERE status_order = 7"); 
+	$members_result = $mysqli->query($sql);
+	while ($members_data = $members_result->fetch_assoc()) {
+		$img_name = str_replace($ekezetek, $ekezetmentesek, $members_data['name']);
+		$members_content .= "\t\t  <div class=tag2><h3 class=tag-h3>".$members_data['name']."</h3></div> \n";
+	}
+
+if($lang=='hu') $members_content .= "\t <span style=\"color:darkblue\">.</span><h2>Tiszteletbeli tagok</h2> \n"; 
+if($lang=='eng')$members_content .= "\t <span style=\"color:darkblue\">.</span><h2>Honorary Members</h2> \n"; 
+
+	$sql = sprintf("SELECT * FROM members WHERE status_order = 8"); 
+	$members_result = $mysqli->query($sql);
+	while ($members_data = $members_result->fetch_assoc()) {
+		$img_name = str_replace($ekezetek, $ekezetmentesek, $members_data['name']);
+		$members_content .= "\t\t  <div class=tag2><h3 class=tag-h3>".$members_data['name']."</h3></div> \n";
+	}
+
+if($lang=='hu') $members_content .= "\t <span style=\"color:darkblue\">.</span><h2 style=\"padding-top:10px\">Alumni tagok</h2> \n"; 
+if($lang=='eng')$members_content .= "\t <span style=\"color:darkblue\">.</span><h2>Alumni Members</h2> \n"; 
+
+	$sql = sprintf("SELECT * FROM members WHERE status_order = 9"); 
+	$members_result = $mysqli->query($sql);
+	$members_content .= "\t\t  <p>";
+	while ($members_data = $members_result->fetch_assoc()) {
+		$img_name = str_replace($ekezetek, $ekezetmentesek, $members_data['name']);
+		$members_content .= $members_data['name'].", ";
+	}
+	$members_content .= "</p> \n";
+
+$members_content .= "</div>";
+
+echo $members_content;
 ?>
-	
-	<div class="tag"><img src="pic/profil/<?php echo $name; ?>.png"/>
-		<h3 class="elnok-tag-h3"><?php echo $data['nev']; ?></h3> 
-		<p class="tag-p"><?php echo $data['poszt']; ?> <br>
-		<?php echo $data['email']; ?></p>
-	</div>
-	
-<?php $it++; } ?>
-
-<!-- TISZTELETBELI TAG -->
-<!-- <tr><td width="100"><img src="pic/profil/Hartlein_Karoly.png"></td><td width="200">Härtlein Károly</td></tr> -->
-		<h2><a id="tagok" style="text-decoration:none"><?php if($lang=='hu'){echo'Tiszteletbeli Tag:';} if($lang=='eng'){echo'Honorary Member:';}?></a></h2>
-<h3><table width="300">
-<tr><td width="100"><img src="pic/profil/Vanko_Peter.png"></td><td width="200">Vankó Péter</td></tr>
-</table></h3>
-
-
-<!-- TAGOK -->
-		<h2 class="floatclear"><?php if($lang=='hu'){echo'Tagok:';} if($lang=='eng'){echo'Members:';}?></h2>
-
-<?php
-	$sql = sprintf("SELECT nev FROM tagok ORDER BY nev"); 
-	$result = $mysqli->query($sql);
-	$it = 1;
-	while ($data = $result->fetch_assoc()) { 
-
-	$ekezetek = array('á', 'é', 'í', 'ó', 'ö', 'ő', 'ú', 'ü', 'ű', 'Á', 'É', 'Í', 'Ó', 'Ö', 'Ő', 'Ú', 'Ü', 'Ű', ' ');
-	$ekezetmentesek = array('a', 'e', 'i', 'o', 'o', 'o', 'u', 'u', 'u', 'A', 'E', 'I', 'O', 'O', 'O', 'U', 'U', 'U', '_');
-	$name = str_replace($ekezetek, $ekezetmentesek, $data['nev']);
-?>
-	
-	<div class="tag"><img src="pic/profil/<?php echo $name; ?>.png"/><h3 class="tag-h3"><?php echo $data['nev']; ?></h3></div>
-	
-<?php $it++; } ?>
-
-
-
-
-<!-- OROKOS TAG -->
-		<h2><a id="tagok" style="text-decoration:none"><?php if($lang=='hu'){echo'Örökös Tagok:';} if($lang=='eng'){echo'Life Members:';}?></a></h2>
-<h3><table width="300">
-<tr></tr>
-<tr><td width="100"><img src="pic/profil/Gubicza_Agnes.png"></td><td width="200">Gubicza Ágnes</td></tr>
-<tr><td width="100"><img src="pic/profil/Konczer_Jozsef.png"></td><td width="200">Konczer József</td></tr>
-</table></h3>
-
-
-
-	<h2 class="floatclear"><?php if($lang=='hu'){echo'Alumni Tagok:';} if($lang=='eng'){echo'Alumni Members:';}?></h2>
-
-<?php
-	$sql = sprintf("SELECT nev FROM volt ORDER BY nev"); 
-	$result = $mysqli->query($sql);
-	$it = 1;
-	while ($data = $result->fetch_assoc()) { 
-?>
-
-<h3><?php echo $data['nev']; ?></h3>
-
-<?php $it++; } ?>
-
-
-<p align="center"><u><a href="Tagok/?#headbox"><?php if($lang=='hu'){echo'ugrás az oldal elejére';} if($lang=='eng'){echo'Jump to the top';}?></a></u></p>
-
-</div>

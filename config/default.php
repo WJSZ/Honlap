@@ -34,6 +34,10 @@
 	$user_home = "$beta/Tag/Naptar/";
 	$admin_home = "$beta/Admin/Felhasznalok/";
 	$home = "$beta/";
+	
+	// Ékezetes karakterek lecseréléséhez ( str_replace() )
+	$ekezetek = array('á', 'é', 'í', 'ó', 'ö', 'ő', 'ú', 'ü', 'ű', 'Á', 'É', 'Í', 'Ó', 'Ö', 'Ő', 'Ú', 'Ü', 'Ű', ' ');
+	$ekezetmentesek = array('a', 'e', 'i', 'o', 'o', 'o', 'u', 'u', 'u', 'A', 'E', 'I', 'O', 'O', 'O', 'U', 'U', 'U', '_');
 
 //-- biztonság, átirányítás
 	if(($urls[0] == 'Admin' || $urls[0] == 'Tag') && !isset($_SESSION['admin'])){

@@ -42,16 +42,16 @@ if($error == '')
 
 <div id="content" class=center>
 
-<h1>Új tag felvitele</h1>
+<h1>New member</h1>
 
-<?php if(isset($done)) { ?> <span align="center"><p>A művelet sikeres volt. <u><a href="Admin/Tagok/">Vissza a tagokhoz</a></u> </span> <?php } ?>
+<?php if(isset($done)) { ?> <span align="center"><p>The operation was successful. <u><a href="Admin/Tagok/">Back to the members</a></u> </span> <?php } ?>
 
 <p><span id="error"><?php echo "$error"; ?></span></p> <!--Hibaüzenet kiiratás-->
 
 <form id="profil" action="" method="post" >
 
 	<p>
-		<label>Szakkollégiumi státusz: </label>  
+		<label>Status: </label>  
 		<select name="status_order">
 				<?php foreach($status_names as $status_order => $status_name) 
 				echo "<option value=\"".$status_order."\">".$status_name."</option>";?>
@@ -59,8 +59,8 @@ if($error == '')
 	</p>
 
 	<p>
-		<label>Név: </label>
-		<input name="name" value="<?php echo $name ?>" autocomplete="off" autofocus/>
+		<label>Name: </label>
+		<input name="name" size="40" value="<?php echo $name ?>" autocomplete="off" autofocus/>
 	</p>
 
 	<p><button id="button">Mentés</button></p>

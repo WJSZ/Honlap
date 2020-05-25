@@ -2,12 +2,7 @@
 
 /** VÁLTOZÓK DEKLARÁLÁSA **/
 
-$mod = 0;
-$elnokid = 0;
-$tagid = 0;
-$voltid = 0;
-$honorid = 0;
-$order = 1;
+$mod = 1;
 
 if (isset($_GET['members_id'])) { $members_id = $_GET['members_id']; }
 if (isset($_GET['mod'])) { $mod = $_GET['mod']; }
@@ -27,18 +22,18 @@ if ($mod == 3)
 <style> .ib table{ margin:0 auto } </style>
 
 <div class=center><div class=ib>	
-<h1>Tagok szerkesztése</h1>
+<h1>Edit members</h1>
 
-<p><a href="Admin/Tagok/Uj/"><u>Új tag felvitele</u></a></p>
+<p><a href="Admin/Members/Edit/"><u>New member</u></a></p>
 
 
 <table id="tag">
 	<tr>
-		<th width="220"><a href="./Admin/Tagok/?order=1">Név</a></th> <th width="100"><a href="./Admin/Tagok/?order=2">Státusz megnevezés</a></th> <th width="100">Sorrend</th> <th width="70">Törlés</th>
+		<th width="220"><a href="./Admin/Members/?mod=1"><u>Name</u></a></th> <th width="100"><a href="./Admin/Members/?mod=2"><u>Status</u></a></th> <!--<th width="100">Sorrend</th>--> <th width="70">Delete</th>
 	</tr>
 	
 	<?php
-		if($order==1) $insert = "name"; else $insert = "status_order";
+		if($mod==1) $insert = "name"; else $insert = "status_order";
 		$sql = sprintf("SELECT * FROM members ORDER BY %s",$insert); 
 		$data = array('members_id' => '','name' => '','status_order' => '');
 		$result = $mysqli->query($sql);
@@ -54,8 +49,8 @@ if ($mod == 3)
 	<tr>
 		<td><?php echo $data['name'];  ?></td> 
 		<td><?php echo $status_data['status_name'];  ?></td> 
-		<td><?php echo $data['status_order'];  ?></td> 
-		<td><u><a href="<?php echo "./Admin/Tagok/?mod=3&members_id=$members_id"; ?>">Töröl</a></u></td>
+		<!--<td><?php echo $data['status_order'];  ?></td> -->
+		<td><u><a href="<?php echo "./Admin/Members/?mod=3&members_id=$members_id"; ?>">Delete</a></u></td>
 	</tr>
 	
 	<?php $it++; } ?>

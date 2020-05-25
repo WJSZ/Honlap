@@ -1,9 +1,9 @@
 
 <div id="content">
 		
-<h1>Események szerkesztése</h1>
+<h1>Edit Events</h1>
 
-<p><a href="Admin/Hirek/Uj/"><u>Új esemény</u></a></p>
+<p><a href="Admin/Events/Edit/"><u>New event</u></a></p>
 
 <table>
 	<?php
@@ -17,7 +17,7 @@
 	?>
 
 	<tr>
-		<td><u><a href="<?php echo "./Admin/Hirek/Uj/?hirid=$hirid"; ?>">Szerkeszt</a></u></td>
+		<td><u><a href="<?php echo "./Admin/Events/Edit/?hirid=$hirid"; ?>">Edit</a></u></td>
 		<td><?php echo $data['datum']; ?></td> 
 		<td><h3><?php echo $data['cim']; ?></h3></td> 
 	</tr>

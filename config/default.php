@@ -31,8 +31,8 @@
 		$url = implode($mysqli->query($sql)->fetch_assoc());
 	}
 	// Hitelesített kezdőoldalak
-	$user_home = "$beta/Tag/Naptar/";
-	$admin_home = "$beta/Admin/Felhasznalok/";
+	$user_home = "$beta/Tag/Calendar/";
+	$admin_home = "$beta/Admin/Users/";
 	$home = "$beta/";
 	
 	// Ékezetes karakterek lecseréléséhez ( str_replace() )
@@ -40,8 +40,11 @@
 	$ekezetmentesek = array('a', 'e', 'i', 'o', 'o', 'o', 'u', 'u', 'u', 'A', 'E', 'I', 'O', 'O', 'O', 'U', 'U', 'U', '_');
 
 //-- biztonság, átirányítás
-	if(($urls[0] == 'Admin' || $urls[0] == 'Tag') && !isset($_SESSION['admin'])){
+	if(($urls[0] == 'Admin' || $urls[0] == 'Tag') && !(isset($_SESSION['admin']) || isset($_SESSION['user_id'])) ){
 		header("Location: $home");exit;
+	}
+	if($urls[0] == 'Admin' && !(isset($_SESSION['admin']))){
+		header("Location: $user_home");exit;
 	}
 
 //-- HTML string-ek --//

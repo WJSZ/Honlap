@@ -1,5 +1,5 @@
 <?php 
-$hir = isset($_GET['hir']) ? $_GET['hir'] : '';
+$hir = isset($_GET['hir']) ? htmlspecialchars($mysqli->real_escape_string($_GET['hir'])) : '';
 ?>
 	
 <div id="content">

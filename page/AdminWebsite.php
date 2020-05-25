@@ -34,7 +34,7 @@ while($row = $result->fetch_assoc()){
 	if($row['sublistpos']) $style .= 'margin-left:30px; ';
 	if($row['style'] == 'display:none;') $style .= 'color:red; ';
 	$style.='"';
-	$HTMLa .= '<a href="Admin/Weboldal/Uj/?listpos='.
+	$HTMLa .= '<a href="Admin/Website/Edit/?listpos='.
 				   $row['listpos'].
 				   '&sublistpos='.
 				   $row['sublistpos'].
@@ -49,16 +49,16 @@ $showERROR = ''; if($error) $showERROR = $errorDIV.$error.'</div>';
 <?=$showERROR?>
 
 <div id="content">
-<h2>Kezdőoldal:</h2>
+<h2>Homepage:</h2>
 <form method="post" action="">
-	<p>Jelenlegi URL:<input type="text" value="<?=$href?>" readonly></p>
-	<p>Új URL:<select name=newHomeLocation><?=$locationOpts?></select></p>
+	<p>Current URL:<input type="text" value="<?=$href?>" readonly></p>
+	<p>New URL:<select name=newHomeLocation><?=$locationOpts?></select></p>
 	<div class="center">
-		<p><button style="padding:5px 15px 5px 15px;">Új kezdőoldal beállítása</button></p>
+		<p><button style="padding:5px 15px 5px 15px;">Save URL for new Homepage</button></p>
 	</div>
 </form>
 
-<h2 style="margin-bottom:20px;">Gombok és tartalmak szerkesztése:</h2>
-<p><a href="Admin/Weboldal/Uj/" style="color:white">+ Új felvitel</a></p>
+<h2 style="margin-bottom:20px;">Edit public menu and contents:</h2>
+<p><a href="Admin/Website/Edit/" style="color:white">+ New menu/content</a></p>
 <?=$HTMLa?>
-<p>(piros rejtett)</p>
+<p>(red: hidden)</p>

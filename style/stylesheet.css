@@ -243,12 +243,12 @@ div#Szamtech{ display:none; }
 	text-align:left;}
 
 #admin { 
-	width:900px;
+	width:1000px;
 	font: 13.5px/2 Lucida Sans Unicode, Serif;
 	color:#c0c0c0;
 	text-align:left;
 	position:relative;
-	left:-50px;
+	left:-100px;
 	/*EFFECT: profil/admin_felh.php <table> **/}
 		
 #admin th, #admin td{

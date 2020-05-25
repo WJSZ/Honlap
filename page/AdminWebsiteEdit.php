@@ -361,7 +361,12 @@ $vissza = '<br><u><a href="Admin/Weboldal/" style="text-align:center;"> < < viss
 if($error) echo $errorDIV.$error.$vissza.'</div>';
 
 ?>
-
+<style type="text/css">
+.CodeMirror {
+      resize: both;
+      overflow: auto !important;
+    }
+</style>
 <div id="content">
 <h1><?=$text['gomb-title']?></h1>
 

@@ -12,8 +12,8 @@ if (isset($_SESSION['user_id'])){
 }
 
 $error ='';
-$username = isset($_GET['username']) ? $_GET['username'] : '';
-$pass = isset($_GET['code']) ? $_GET['code'] : '';
+$username = isset($_GET['username']) ? htmlspecialchars($mysqli->real_escape_string($_GET['username'])) : '';
+$pass = isset($_GET['code']) ? htmlspecialchars($mysqli->real_escape_string($_GET['code'])) : '';
 
 if ($_POST) {
 	/** BIZTONSÁG **/

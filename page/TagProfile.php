@@ -71,7 +71,7 @@ if ($row = $result->fetch_assoc()) { $data = $row; }
 
 <div id="content">
 		
-<h1>Profil szerkesztése</h1>
+<h1>Edit my profile</h1>
 
 <form id="profil" class="bigform center" method="post" action="">
 

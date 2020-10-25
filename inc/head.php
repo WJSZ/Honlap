@@ -4,6 +4,7 @@
 	<?php if($_SERVER['SERVER_NAME'] == 'localhost') 
 	           echo '<base href="http://localhost/beta/"> ';
 		  else echo '<base href="https://wjsz.bme.hu'.$home.'"> '; ?>
+	<base target="_blank">
 	<meta charset="UTF-8">
 	<meta name="author" content="Nyitrai Gábor">
 	<meta name="description" content="WJSz - A Budapesti Műszaki Egyetem Wigner Jenő Szakkollégium honlapja">

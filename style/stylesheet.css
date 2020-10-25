@@ -3,13 +3,16 @@
 /** háttér - betű - lábléc **/
 
 html {	
-	background: url(../pic/hatter.jpg) no-repeat right bottom fixed; 
+	 background: url(../pic/hatter.jpg) no-repeat right bottom fixed; 
+	
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	overflow:scroll;
 	text-align:justify;
-	color:white;}
+	color:white;
+}
+	
 		
 html a{	
 	color: white;
@@ -87,7 +90,8 @@ ul, ol{
 
 div#Page1{display:inline;}
 div#Page2, #Page3, #Page4, #Page5, #Page6, #Page7, #Page8, #Page9, #Page10, #Page11, #Page12, #Page13, #Page14, #Page15, #Page16, #Page17, #Page18, #Page19, #Page20 {display:none;}
-.cursoru{cursor:pointer}.cursor{
+.cursoru{cursor:pointer}
+.cursor{
 	cursor:pointer; 
 	text-decoration: underline;	
 	}

@@ -82,8 +82,8 @@ ga('send', 'pageview');
 
 	<?php if (isset($_SESSION['user_id'])) : ?>
 		<div id="headtextbox">
-			<p>Helló <?php echo $_SESSION['username'] ?>!</p> 
-			<p><a href="Kilep/"><u>Kilépés</u></a></p> 
+			<p>Hello <?php echo $_SESSION['username'] ?>!</p> 
+			<p><a href="Kilep/"><u>Exit</u></a></p> 
 		</div>
 	<?php endif ?>
 	

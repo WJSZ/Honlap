@@ -44,7 +44,7 @@ if($error == '')
 
 <h1>New member</h1>
 
-<?php if(isset($done)) { ?> <span align="center"><p>The operation was successful. <u><a href="Admin/Tagok/">Back to the members</a></u> </span> <?php } ?>
+<?php if(isset($done)) { ?> <span align="center"><p>The operation was successful. <u><a href="Admin/Members/">Back to the members</a></u> </span> <?php } ?>
 
 <p><span id="error"><?php echo "$error"; ?></span></p> <!--Hibaüzenet kiiratás-->
 

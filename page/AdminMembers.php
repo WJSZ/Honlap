@@ -29,11 +29,11 @@ if ($mod == 3)
 
 <table id="tag">
 	<tr>
-		<th width="220"><a href="./Admin/Members/?mod=1"><u>Name</u></a></th> <th width="100"><a href="./Admin/Members/?mod=2"><u>Status</u></a></th> <!--<th width="100">Sorrend</th>--> <th width="70">Delete</th>
+		<th width="220"><a href="./Admin/Members/?mod=1"><u>Order by Name</u></a></th> <th width="100"><a href="./Admin/Members/?mod=2"><u>Order by Status</u></a></th> <!--<th width="100">Sorrend</th>--> <th width="70">Delete</th>
 	</tr>
 	
 	<?php
-		if($mod==1) $insert = "name"; else $insert = "status_order";
+		if($mod==1) $insert = "name, status_order"; else $insert = "status_order, name";
 		$sql = sprintf("SELECT * FROM members ORDER BY %s",$insert); 
 		$data = array('members_id' => '','name' => '','status_order' => '');
 		$result = $mysqli->query($sql);

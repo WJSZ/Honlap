@@ -2,11 +2,14 @@
 
 if(isset($_GET['voteid']) && $_POST)
 {
+	$sql = "SELECT * FROM votes WHERE vote_id=".$_GET['voteid'];
+	$result = $mysqli->query($sql);
+	$votes = $result->fetch_assoc();
 	$sql = "SELECT * FROM users WHERE id=".$_SESSION["user_id"];
 	$result = $mysqli->query($sql);
 	if(!$result) $error.="Adatbázislekérdezési hiba: $mysqli->error <br>\n"; //Adatbázislekérdezés ellenőrzés
 	$users = $result->fetch_assoc();
-	if($users["voted_".trim($_POST['vote_flag'])] == 0)
+	if($users["voted_".trim($_POST['vote_flag'])] == 0 && $votes['is_active'] == 1)
 	{
 		$sql = "INSERT INTO vote_records SET vote_id=".$_GET['voteid'].", vote=".$_POST['vote'].", voter_name='".$_POST['username']."'";
 		$result = $mysqli->query($sql);
@@ -23,6 +26,9 @@ if(isset($_GET['voteid']) && $_POST)
 <style type="text/css">
 p {
   margin-top:0px;
+}
+ul{
+  margin-left:30px;
 }
 </style>
 
@@ -66,7 +72,7 @@ p {
 			}
 			if($users['voted_'.trim($votes['vote_flag'])]==1)
 			{
-				$options.="<p>You have already voted. Current results:</p>\n";
+				$options.="<p>You have already voted. Current results:</p>\n<ul>\n";
 				$count=0;
 				foreach ($option_values as $key => $option_value)
 				{
@@ -75,11 +81,11 @@ p {
 					$count_result = $mysqli->query($sql);
 					if(!$count_result) $error.="Adatbázislekérdezési hiba: $mysqli->error <br>\n"; //Adatbázislekérdezés ellenőrzés
 					$vote_records = $count_result->fetch_assoc();
-					$options.="<p>".$option_value.": ".$vote_records['count_'.$key]."</p>\n";
+					$options.="<li><p>".$option_value.": ".$vote_records['count_'.$key]."</p></li>\n";
 					$count += $vote_records['count_'.$key];
 					$count_result->free();
 				}
-				$options.="<p>Total number of votes: ".$count."</p>\n";
+				$options.="</ul>\n<p>Total number of votes: ".$count."</p>\n";
 			}
 			echo $options;
 		}
@@ -101,7 +107,7 @@ p {
 		echo "<br><hr><h2 style=\"padding-top:0px;margin-bottom:0px;\">".$votes['vote_title_hu']."</h2>\n";
 		echo "<h3>".$votes['vote_title_en']."</h3>\n";
 		echo "<h4>Created: ".$votes['create_date']." (".$votes['creator'].")</h4>\n";
-		$options="<p>Results:</p>\n";
+		$options="<p>Results:</p>\n<ul>\n";
 		$option_values = explode("\n",$votes['vote_options']);
 		$count=0;
 		foreach ($option_values as $key => $option_value)
@@ -111,12 +117,12 @@ p {
 			$count_result = $mysqli->query($sql);
 			if(!$count_result) $error.="Adatbázislekérdezési hiba: $mysqli->error <br>\n"; //Adatbázislekérdezés ellenőrzés
 			$vote_records = $count_result->fetch_assoc();
-			$options.="<p>".$option_value.": ".$vote_records['count_'.$key]."</p>\n";
+			$options.="<li><p>".$option_value.": ".$vote_records['count_'.$key]."</p></li>\n";
 			$count_result->free();
 			$count += $vote_records['count_'.$key];
 			$count_result->free();
 		}
-		$options.="<p>Total number of votes: ".$count."</p>\n";
+		$options.="</ul>\n<p>Total number of votes: ".$count."</p>\n";
 		echo $options;
 	} 
 	$votes_result->free();
